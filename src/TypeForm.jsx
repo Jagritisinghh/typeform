@@ -104,14 +104,14 @@ function TypeForm() {
 
 
 
-  const InputStyle = "w-full text-2xl md:text-3xl lg:text-4xl p-3 border-b-2 bg-transparent focus:outline-none focus:border-indigo-500 transition-all duration-300 placeholder-white-400";
-  const ButtonStyle = "flex items-center space-x-2 px-6 py-3 mt-10 text-white font-semibold rounded-full shadow-lg transition-all duration-300 hover:shadow-xl disabled:bg-gray-400 disabled:shadow-none";
+  const InputStyle = "w-full text-xl md:text-3xl lg:text-4xl p-3 border-b-2 bg-transparent focus:outline-none focus:border-indigo-500 transition-all duration-300 placeholder-white-400";
+  const ButtonStyle = "flex items-center self-center space-x-2 px-6 py-3 mt-10 text-white font-semibold rounded-full shadow-lg transition-all duration-300 hover:shadow-xl disabled:bg-gray-400 disabled:shadow-none";
 
   return (
     <div className='min-h-screen bg-black flex items-center justify-center p-4'>
-        <div className='w-full max-w-2xl bg-gray-900 rounded-2xl shadow-2xl p-6 sm:p-10 transition-all duration-500 ease-in-out'  style={{ minHeight: '400px' }}>
+        <div className='w-full flex flex-col justify-between  max-w-2xl bg-zinc-950 rounded-2xl shadow-2xl p-6 sm:p-10 transition-all duration-500 ease-in-out'  style={{ minHeight: '400px' }}>
             {/* progress bar */}
-            <div className="h-2 bg-gray-200 rounded-full mb-8 overflow-hidden">
+            <div className="h-1 bg-gray-200 rounded-full mb-8 overflow-hidden">
                 <div className='h-full bg-indigo-500 transition-all duration-700 ease-out'
                 style={{width:`${progress}%`}}
                 >
@@ -161,9 +161,9 @@ function TypeForm() {
                                     {/* buttons */}
                                     <button
                                     type="button" 
-                    onClick={handleNext}
-                    disabled={isSubmitting}
-                    className={`${ButtonStyle} ${isLastStep ? 'bg-green-500 hover:bg-green-600' : 'bg-indigo-500 hover:bg-indigo-600'}`}>
+                                    onClick={handleNext}
+                                    disabled={isSubmitting}
+                                    className={`${ButtonStyle} ${isLastStep ? 'bg-blue-900 hover:bg-cyan-950' : 'bg-indigo-500 hover:bg-indigo-600'}`}>
                                         {isSubmitting?('Sending...'):isLastStep?(
                                             <>
                                             <Send/>
