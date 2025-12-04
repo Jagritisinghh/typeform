@@ -22,7 +22,9 @@ const initialFormData={
 };
 
 const validateField = (label, value) => {
+  if(label==='message') return true;
   if (!value.trim()) return false;
+   
   
   if(label==='contact' && value.length!==10) return false;
   
@@ -102,12 +104,12 @@ function TypeForm() {
 
 
 
-  const InputStyle = "w-full text-2xl md:text-3xl lg:text-4xl p-3 border-b-2 bg-transparent focus:outline-none focus:border-indigo-500 transition-all duration-300 placeholder-gray-400";
-  const ButtonStyle = "flex items-center space-x-2 px-6 py-3 mt-8 text-white font-semibold rounded-full shadow-lg transition-all duration-300 hover:shadow-xl disabled:bg-gray-400 disabled:shadow-none";
+  const InputStyle = "w-full text-2xl md:text-3xl lg:text-4xl p-3 border-b-2 bg-transparent focus:outline-none focus:border-indigo-500 transition-all duration-300 placeholder-white-400";
+  const ButtonStyle = "flex items-center space-x-2 px-6 py-3 mt-10 text-white font-semibold rounded-full shadow-lg transition-all duration-300 hover:shadow-xl disabled:bg-gray-400 disabled:shadow-none";
 
   return (
-    <div className='min-h-screen bg-white flex items-center justify-center p-4'>
-        <div className='w-full max-w-2xl bg-white rounded-2xl shadow-2xl p-6 sm:p-10 transition-all duration-500 ease-in-out'  style={{ minHeight: '400px' }}>
+    <div className='min-h-screen bg-black flex items-center justify-center p-4'>
+        <div className='w-full max-w-2xl bg-gray-900 rounded-2xl shadow-2xl p-6 sm:p-10 transition-all duration-500 ease-in-out'  style={{ minHeight: '400px' }}>
             {/* progress bar */}
             <div className="h-2 bg-gray-200 rounded-full mb-8 overflow-hidden">
                 <div className='h-full bg-indigo-500 transition-all duration-700 ease-out'
@@ -130,7 +132,7 @@ function TypeForm() {
                                 position: index === step ? 'relative' : 'absolute',
                               }}>
                                 <div className="flex flex-col space-y-4">
-                                    <h2 className="text-3xl md:text-4xl font-extrabold text-gray-800 mb-6">{stepData.question}</h2>
+                                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">{stepData.question}</h2>
                                     <div className="relative flex items-start">
                                         <stepData.icon className="absolute left-3 top-5 text-indigo-400 w-6 h-6"/>
                                         {
@@ -141,14 +143,14 @@ function TypeForm() {
                                                 placeholder={stepData.placeholder}
                                                 rows="4"
                                                 className={`${InputStyle} pl-12 resize-none`}
-                                                required/>
+                                              />
                                             ):(
                                                 <input  id={stepData.label}
                                                 type={stepData.type}
                                                 value={formData[stepData.label]}
                                                 onChange={handleChange}
                                                 placeholder={stepData.placeholder}
-                                                className={`${InputStyle} pl-12`}
+                                                className={`${InputStyle} text-white pl-12`}
                                                 required/>
                                             )
                                         }
@@ -158,7 +160,7 @@ function TypeForm() {
                                     )}
                                     {/* buttons */}
                                     <button
-                                    type="button" // Use type="button" to prevent default form submission
+                                    type="button" 
                     onClick={handleNext}
                     disabled={isSubmitting}
                     className={`${ButtonStyle} ${isLastStep ? 'bg-green-500 hover:bg-green-600' : 'bg-indigo-500 hover:bg-indigo-600'}`}>
@@ -187,8 +189,8 @@ function TypeForm() {
                              position:isSuccess?'relative':'absolute',}}>
 
             <CheckCircle className="w-20 h-20 text-green-500 mb-4 animate-bounce" />
-                <h2 className="text-4xl font-extrabold text-gray-800 mb-2">Success!</h2>
-                <p className="text-xl text-gray-600">
+                <h2 className="text-4xl font-extrabold text-white mb-2">Success!</h2>
+                <p className="text-xl text-gray-300">
                     Thank you, {formData.name || 'Guest'}! Your message has been received.
                 </p>
     
